@@ -14,8 +14,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         let room = Room()
-        print("----- start")
-        print(room)
+        let agent1 = Vacuum()
+        let agent2 = Vacuum()
+        
     }
 
 

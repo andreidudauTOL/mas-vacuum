@@ -9,8 +9,8 @@
 import Foundation
 
 class Room {
-    var agents: [Vacuum] = []
-    var agentPositions: [Position] = []
+    var agentDirections: [Int: Direction] = [0: .up, 0: .up]
+    var agentPositions: [Int: Position] = [:]
     var floor: [[State]] = [
                     [.clean, .clean, .dirt, .clean],
                     [.clean, .dirt, .clean, .clean],
