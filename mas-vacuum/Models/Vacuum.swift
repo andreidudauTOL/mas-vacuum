@@ -12,24 +12,13 @@ struct Vacuum {
     static var objectCount = 0
     
     var id: Int!
-    var currentTile: State!
-    var nextTile: State!
-    var currentDirection: Direction!
     
     init() {
         id = Vacuum.objectCount
         Vacuum.objectCount += 1
     }
     
-    mutating func setCurrentTile(state: State) {
-        currentTile = state
-    }
-    
-    mutating func setNextTile(state: State) {
-        nextTile = state
-    }
-    
-    func computeAction() -> Action? {
+    static func computeAction(currentTile: State, nextTile: State) -> Action {
         if currentTile == .dirt { return .clean }
         if nextTile == .wall || nextTile == .otherAgent { return .rotate }
         

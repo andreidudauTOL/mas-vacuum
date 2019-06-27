@@ -22,8 +22,18 @@ enum Action {
     case move, clean, rotate
 }
 
-enum Direction {
-    case up, right, down, bottom
+enum Direction: Int, CustomStringConvertible {
+    case up = 0, right, down, left
+    
+    init(number: Int) {
+        switch number {
+        case 0: self = .up
+        case 1: self = .right
+        case 2: self = .down
+        case 3: self = .left
+        default: self = .up
+        }
+    }
     
     func getPosition() -> Position {
         switch self {
@@ -33,8 +43,21 @@ enum Direction {
             return Position(1, 0)
         case .down:
             return Position(0, 1)
-        case .bottom:
+        case .left:
             return Position(-1, 0)
+        }
+    }
+    
+    var description: String {
+        switch self {
+        case .up:
+            return "⬆️"
+        case .right:
+            return "➡"
+        case .down:
+            return "⬇️"
+        case .left:
+            return "⬅"
         }
     }
 }
